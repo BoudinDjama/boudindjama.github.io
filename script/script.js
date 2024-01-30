@@ -126,3 +126,105 @@ function HideContactForm(){
       contactform.style.transform = "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -80, 0, 1)";
       contactform.style.transition = "opacity 2s cubic-bezier(0.5, 0, 0, 1) 0s, transform 2s cubic-bezier(0.5, 0, 0, 1) 0s";
 }
+/*test*/
+function sendEmail() {
+
+    const name = document.querySelector('input[name="name"]').value;
+
+    const email = document.querySelector('input[name="email"]').value;
+
+    const subject = document.querySelector('input[name="subject"]').value;
+
+    const message = document.querySelector('textarea[name="message"]').value;
+
+    const apiKey = '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';
+
+
+
+    fetch('https://api.sendgrid.com/v3/mail/send', {
+
+        method: 'POST',
+
+        headers: {
+
+            'Content-Type': 'application/json',
+
+            Authorization: `Bearer ${apiKey}`,
+
+        },
+
+        body: JSON.stringify({
+
+            personalizations: [
+
+                {
+
+                    to: [
+
+                        {
+
+                            email: 'your-email@example.com',
+
+                        },
+
+                    ],
+
+                    subject: subject,
+
+                },
+
+            ],
+
+            from: {
+
+                email: email,
+
+                name: name,
+
+            },
+
+            content: [
+
+                {
+
+                    type: 'text/plain',
+
+                    value: message,
+
+                },
+
+            ],
+
+        }),
+
+    })
+
+        .then((response) => {
+
+            if (response.ok) {
+
+                alert('Email sent successfully!');
+
+            } else {
+
+                response.json().then((data) => {
+
+                    console.error(data.errors);
+
+                    alert('Failed to send email.');
+
+                });
+
+            }
+
+        })
+
+        .catch((error) => {
+
+            console.error(error);
+
+            alert('Failed to send email.');
+
+        });
+
+}
