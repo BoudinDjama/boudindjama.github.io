@@ -496,3 +496,22 @@ background-color: #01757d;
     font-size: 16px;
     cursor: pointer;
 }
+.submitted-popup {
+
+  background-color: #0078d7;
+
+  color: white;
+
+  padding: 10px;
+
+  border-radius: 5px;
+
+  position: fixed;
+
+  top: 50%;
+
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+}

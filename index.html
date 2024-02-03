@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
 
-     <script src="./script/script.js"></script>
     <link rel="stylesheet" href="./style/style.css" />
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet"/>
     <script src="https://kit.fontawesome.com/553eacc074.js" crossorigin="anonymous"></script>
@@ -330,35 +329,31 @@
 
     <section id="Contact" class="contact">
         <h2 class="heading">Contact Me</h2>
-        <form class="contact-form">
+        <form id="myForm" method="post" class="contact-form" action="" name="contact-form">
 
+            <!-- Your form fields go here -->
+      
             <div class="input-box">
-
+      
                 <input id="name" type="text" name="name" placeholder="Name" required>
-
+      
                 <input id="email" type="email" name="email" placeholder="Email" required>
-
+      
             </div>
-
-
-
+      
             <div class="input-box">
-
-                <input id="phone" type="number" name="number" placeholder="Phone number">
-
+      
+                <input id="phone" type="number" name="phone" placeholder="Phone number">
+      
                 <input id="subject" type="text" name="subject" placeholder="Email subject" required>
-
+      
             </div>
-
-
-
+      
             <textarea name="message" cols="30" rows="10" placeholder="Your message" required></textarea>
-
-
-
-            <button type="submit" onclick="sendEmail()">Send</button>
-
-        </form>
+      
+            <button type="submit" id="submit" class="contact-form-button">Send</button>
+      
+          </form>
        
        </section>
 
@@ -373,8 +368,6 @@
     </footer>
 
     <!-- END FOOTER SECTION -->
-    <script src="./script/script.js"></script>
-    <script src="https://unpkg.com/scrollreveal"></script>
     <script src="./script/script.js"></script>
 </body>
 

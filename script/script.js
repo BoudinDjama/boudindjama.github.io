@@ -228,3 +228,58 @@ function sendEmail() {
         });
 
 }
+
+//for contact form
+const scriptURL = "https://script.google.com/macros/s/AKfycbwkaeYBDZX_tJmgREX9ildcDSRARQynZ7nR6PJxkGxFFWkqGrgdExgUtagUFOlFAr94jQ/exec";
+
+const form = document.getElementById("myForm");
+
+const submitButton = document.getElementById("submit");
+
+ 
+
+form?.addEventListener("submit", async (e) => {
+
+    e.preventDefault();
+
+    submitButton.disabled = true;
+
+    try {
+
+        const response = await fetch(scriptURL, { method: "POST", body: new FormData(form) });
+
+        if (response.ok) {
+
+            const submittedPopup = document.createElement("div");
+
+            submittedPopup.innerHTML = "Thank you! Your form is submitted successfully.";
+
+            submittedPopup.classList.add("submitted-popup");
+
+            document.body.appendChild(submittedPopup);
+
+            setTimeout(() => {
+
+                submittedPopup.remove();
+
+                window.location.reload();
+
+            }, 3000);
+
+        } else {
+
+            throw new Error("Network response was not ok.");
+
+        }
+
+    } catch (error) {
+
+        console.error("Error!", error.message);
+
+    } finally {
+
+        submitButton.disabled = false;
+
+    }
+
+});
