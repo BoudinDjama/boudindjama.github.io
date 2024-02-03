@@ -230,6 +230,7 @@ function sendEmail() {
 }
 
 //for contact form
+/*
 const scriptURL = "https://script.google.com/macros/s/AKfycbwkaeYBDZX_tJmgREX9ildcDSRARQynZ7nR6PJxkGxFFWkqGrgdExgUtagUFOlFAr94jQ/exec";
 
 const form = document.getElementById("myForm");
@@ -282,4 +283,4 @@ form?.addEventListener("submit", async (e) => {
 
     }
 
-});
+});*/
