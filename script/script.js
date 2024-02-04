@@ -284,27 +284,31 @@ form?.addEventListener("submit", async (e) => {
 
 });*/
 const scriptURL = "https://script.google.com/macros/s/AKfycbwkaeYBDZX_tJmgREX9ildcDSRARQynZ7nR6PJxkGxFFWkqGrgdExgUtagUFOlFAr94jQ/exec";
-
+const submitButton = document.getElementById("submit");
 const form = document.forms['contact-form']
 
 form.addEventListener('submit', e => {
   e.preventDefault()
+  submitButton.disabled = true
+  submitButton.style.backgroundColor = "grey";
   fetch(scriptURL, { method: 'POST', body: new FormData(form)})
   .then(response => { const submittedPopup = document.createElement("div");
 
-  submittedPopup.innerHTML = "Thank you! Your form is submitted successfully.";
+            submittedPopup.innerHTML = "Thank you! Your form is submitted successfully.";
 
-  submittedPopup.classList.add("submitted-popup");
+            submittedPopup.classList.add("submitted-popup");
 
-  document.body.appendChild(submittedPopup);
+            document.body.appendChild(submittedPopup);
 
-  setTimeout(() => {
+            setTimeout(() => {
 
-      submittedPopup.remove();
+                submittedPopup.remove();
 
-      window.location.reload();
-
-  }, 3000);})
-  .then(() => { window.location.reload(); })
-  .catch(error => console.error('Error!', error.message))
+                window.location.reload();
+                
+            }, 3000);})
+    
+    
+    .catch(error => console.error('Error!', error.message))
+  
 });
