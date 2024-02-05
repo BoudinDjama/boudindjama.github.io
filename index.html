@@ -24,6 +24,8 @@
                 <a href="#About">About</a>
                 <a href="#Projects">Projects</a>
                 <a href="#Contact">Contact</a>
+                
+            <i onclick="showSidebar()" class="hamburger-menu fa fa-bars"></i>
             </div>
 
             <div class="sidebar">
@@ -33,7 +35,6 @@
                 <a href="#Projects">Projects</a>
                 <a href="#Contact">Contact</a>
             </div>
-            <i onclick="showSidebar()" class="hamburger-menu fa fa-bars"></i>
                 
         </nav>
     </header>
@@ -334,25 +335,19 @@
             <!-- Your form fields go here -->
       
             <div class="input-box">
-      
                 <input id="name" type="text" name="name" placeholder="Name" required>
-      
                 <input id="email" type="email" name="email" placeholder="Email" required>
-      
             </div>
       
             <div class="input-box">
-      
                 <input id="phone" type="number" name="phone" placeholder="Phone number">
-      
                 <input id="subject" type="text" name="subject" placeholder="Email subject" required>
-      
             </div>
-      
             <textarea name="message" cols="30" rows="10" placeholder="Your message" required></textarea>
-      
             <button type="submit" id="submit" class="contact-form-button">Send</button>
-      
+           
+            <div id="loadingSpinner"></div>
+            
           </form>
        
        </section>

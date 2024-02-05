@@ -27,7 +27,7 @@ function checkScreenSize(){
 
 window.addEventListener('resize', checkScreenSize)
 
-/* ----------- code from the office -------------------------*/
+/* ----------- Keeping track of where we are at with scolling -------------------------*/
 
 var sections = document.querySelectorAll('section');
 var navLinks = document.querySelectorAll('header nav a');
@@ -85,7 +85,7 @@ window.onscroll = () => {
     
 });
 }
-/*  for the About section transition */
+/*  for the About section animation/transition */
 function DisplayAboutContent(){
         
         gtkm.style.opacity = 1;
@@ -113,7 +113,7 @@ function HideAboutContent(){
 
 
 
-/* for the contact form */
+/* Contact section scroll animation/transition */
 function DisplayContactForm(){
       contactform.style.visibility = "visible";
       contactform.style.opacity = "1";
@@ -126,163 +126,9 @@ function HideContactForm(){
       contactform.style.transform = "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -80, 0, 1)";
       contactform.style.transition = "opacity 2s cubic-bezier(0.5, 0, 0, 1) 0s, transform 2s cubic-bezier(0.5, 0, 0, 1) 0s";
 }
-/*test*/
-function sendEmail() {
 
-    const name = document.querySelector('input[name="name"]').value;
 
-    const email = document.querySelector('input[name="email"]').value;
-
-    const subject = document.querySelector('input[name="subject"]').value;
-
-    const message = document.querySelector('textarea[name="message"]').value;
-
-    const apiKey = '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';
-
-
-
-    fetch('https://api.sendgrid.com/v3/mail/send', {
-
-        method: 'POST',
-
-        headers: {
-
-            'Content-Type': 'application/json',
-
-            Authorization: `Bearer ${apiKey}`,
-
-        },
-
-        body: JSON.stringify({
-
-            personalizations: [
-
-                {
-
-                    to: [
-
-                        {
-
-                            email: 'your-email@example.com',
-
-                        },
-
-                    ],
-
-                    subject: subject,
-
-                },
-
-            ],
-
-            from: {
-
-                email: email,
-
-                name: name,
-
-            },
-
-            content: [
-
-                {
-
-                    type: 'text/plain',
-
-                    value: message,
-
-                },
-
-            ],
-
-        }),
-
-    })
-
-        .then((response) => {
-
-            if (response.ok) {
-
-                alert('Email sent successfully!');
-
-            } else {
-
-                response.json().then((data) => {
-
-                    console.error(data.errors);
-
-                    alert('Failed to send email.');
-
-                });
-
-            }
-
-        })
-
-        .catch((error) => {
-
-            console.error(error);
-
-            alert('Failed to send email.');
-
-        });
-
-}
-
-//for contact form
-/*const scriptURL = "https://script.google.com/macros/s/AKfycbwkaeYBDZX_tJmgREX9ildcDSRARQynZ7nR6PJxkGxFFWkqGrgdExgUtagUFOlFAr94jQ/exec";
-
-const form = document.getElementById("myForm");
-
-const submitButton = document.getElementById("submit");
-
- 
-
-form?.addEventListener("submit", async (e) => {
-
-    e.preventDefault();
-
-    submitButton.disabled = true;
-
-    try {
-
-        const response = await fetch(scriptURL, { method: "POST", body: new FormData(form) });
-
-        if (response.ok) {
-
-            const submittedPopup = document.createElement("div");
-
-            submittedPopup.innerHTML = "Thank you! Your form is submitted successfully.";
-
-            submittedPopup.classList.add("submitted-popup");
-
-            document.body.appendChild(submittedPopup);
-
-            setTimeout(() => {
-
-                submittedPopup.remove();
-
-                window.location.reload();
-
-            }, 3000);
-
-        } else {
-
-            throw new Error("Network response was not ok.");
-
-        }
-
-    } catch (error) {
-
-        console.error("Error!", error.message);
-
-    } finally {
-
-        submitButton.disabled = false;
-
-    }
-
-});*/
+//Contact form submission
 const scriptURL = "https://script.google.com/macros/s/AKfycbwkaeYBDZX_tJmgREX9ildcDSRARQynZ7nR6PJxkGxFFWkqGrgdExgUtagUFOlFAr94jQ/exec";
 const submitButton = document.getElementById("submit");
 const form = document.forms['contact-form']
@@ -291,9 +137,11 @@ form.addEventListener('submit', e => {
   e.preventDefault()
   submitButton.disabled = true
   submitButton.style.backgroundColor = "grey";
+  document.getElementById('loadingSpinner').style.display = 'block';
   fetch(scriptURL, { method: 'POST', body: new FormData(form)})
   .then(response => { const submittedPopup = document.createElement("div");
 
+            document.getElementById('loadingSpinner').style.display = 'none';
             submittedPopup.innerHTML = "Thank you! Your form is submitted successfully.";
 
             submittedPopup.classList.add("submitted-popup");
