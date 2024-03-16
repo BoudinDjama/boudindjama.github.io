@@ -92,7 +92,7 @@ section {
 .x-menu{
   font-size: 27px;
   padding-left: 45px;
-
+  cursor: pointer;
 }
 
 @media screen and (max-width: 900px) {
