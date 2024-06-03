@@ -34,7 +34,11 @@ var navLinks = document.querySelectorAll('header nav a');
 var contactform = document.querySelector(".contact"); 
 var gtkm = document.querySelector(".about-GetToKnowMe");
 var absk = document.querySelector(".about-MySkills");
-           
+var resumeIcon = document.getElementById("cv-disabled");
+var agencyCard = document.getElementById("placement-agency-card");
+
+
+
 window.onscroll = () => {
     sections.forEach( sec => { 
     let top =window.scrollY;
@@ -110,7 +114,46 @@ function HideAboutContent(){
        absk.style.transition = "opacity 2s cubic-bezier(0.5, 0, 0, 1) 0s, transform 2s cubic-bezier(0.5, 0, 0, 1) 0s";
 }
 
+//disabling progress
+function resumeDisabled(){
+    // Create the message container dynamically
+    const messageContainer = document.createElement('div');
+    messageContainer.className = 'cv-disabled';
+    messageContainer.textContent = 'CV disabled';
 
+    // Append the message container to the DOM
+    resumeIcon.appendChild(messageContainer);
+
+    // Show the message when the button is disabled
+    messageContainer.style.display = 'block';
+    setTimeout(() => {
+    
+    messageContainer.style.display = 'none';    
+   
+    }, 1000);
+}
+
+
+// Project (in progress) pop up for demo
+function DemoInProgress(){
+    
+        // Create the message container dynamically
+        const messageContainer = document.createElement('div');
+        messageContainer.className = 'message-container';
+        messageContainer.textContent = 'Demo coming soon!';
+
+        // Append the message container to the DOM
+        agencyCard.appendChild(messageContainer);
+
+        // Show the message when the button is disabled
+        messageContainer.style.display = 'block';
+        setTimeout(() => {
+        
+        messageContainer.style.display = 'none';    
+       
+        }, 2000);
+    
+}
 
 
 /* Contact section scroll animation/transition */
@@ -160,3 +203,4 @@ form.addEventListener('submit', e => {
     .catch(error => console.error('Error!', error.message))
   
 });
+

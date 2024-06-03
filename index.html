@@ -50,7 +50,7 @@
          </h1> 
         <div class="icon-wrapper">
             <a href="https://www.linkedin.com/in/boudin-djama-441b94165/" target="_blank" class="icons"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://www.linkedin.com/in/boudin-djama-441b94165/" target="_blank" class="icons"><i class="fas fa-briefcase"></i></a>
+            <a class="icons" id="cv-disabled" onclick="resumeDisabled()"><i class="fas fa-briefcase"></i></a>
             <a href="#Contact" class="icons"><i class="fas fa-envelope"></i></a>
             <a href="https://github.com/BoudinDjama" target="_blank" class="icons"><i class="fab fa-github"></i></a>  
             </div>
@@ -229,7 +229,7 @@
             </div>
         </div>
 
-        <div class="card-container placement-agency-card">
+        <div class="card-container placement-agency-card" id="placement-agency-card">
             
             
             <h3 class="project-title">Placement Agency</h3>
@@ -241,7 +241,7 @@
                 <button class="primary" onclick="window.open('https://github.com/BoudinDjama/Placement-agency', 'blank')">
                     Code
                 </button>
-                <button class="primary ghost">
+                <button class="primary ghost" id="demo_PlacementAgency" onclick="DemoInProgress()">
                     Demo
                 </button>
             </div>

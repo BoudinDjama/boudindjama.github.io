@@ -443,6 +443,31 @@ button.primary.ghost:hover {
   background-size: cover;
 }
 
+/*pending popup*/
+.message-container {
+  background-color: #d7a600e3;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*disabled CV*/
+.cv-disabled{
+  background-color: #d73200e3;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
 @media screen and (max-width: 1083px) {
   .projects-container{
     
