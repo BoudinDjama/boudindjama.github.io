@@ -34,8 +34,12 @@ var navLinks = document.querySelectorAll('header nav a');
 var contactform = document.querySelector(".contact"); 
 var gtkm = document.querySelector(".about-GetToKnowMe");
 var absk = document.querySelector(".about-MySkills");
+
+
 var resumeIcon = document.getElementById("cv-disabled");
+var troubleshooter = document.getElementById("troubleshooter-card");
 var agencyCard = document.getElementById("placement-agency-card");
+var guessingGame = document.getElementById("guessing-game");
 
 
 
@@ -69,9 +73,6 @@ window.onscroll = () => {
          
            if (id === 'About') 
               DisplayAboutContent();
-          
-          
-          
           
             
            else if(id === "Contact")
@@ -135,24 +136,36 @@ function resumeDisabled(){
 
 
 // Project (in progress) pop up for demo
-function DemoInProgress(){
-    
-        // Create the message container dynamically
-        const messageContainer = document.createElement('div');
-        messageContainer.className = 'message-container';
-        messageContainer.textContent = 'Demo coming soon!';
 
-        // Append the message container to the DOM
-        agencyCard.appendChild(messageContainer);
 
-        // Show the message when the button is disabled
-        messageContainer.style.display = 'block';
-        setTimeout(() => {
-        
-        messageContainer.style.display = 'none';    
-       
-        }, 2000);
+
+
+function DemoInProgress(id){
     
+    // Create the message container dynamically
+    const messageContainer = document.createElement('div');
+    messageContainer.className = 'message-container';
+    messageContainer.textContent = 'Demo coming soon!';
+
+    // Append the message container to the DOM
+    if(id == 1)
+    troubleshooter.appendChild(messageContainer);
+
+    if(id == 2)
+    agencyCard.appendChild(messageContainer);
+
+    if(id == 3)
+    guessingGame.appendChild(messageContainer);
+
+    guessingGame
+    // Show the message when the button is disabled
+    messageContainer.style.display = 'block';
+    setTimeout(() => {
+    
+    messageContainer.style.display = 'none';    
+   
+    }, 2000);
+
 }
 
 
