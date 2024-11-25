@@ -142,6 +142,7 @@ function resumeDisabled(){
 
 function DemoInProgress(id){
     
+    
     // Create the message container dynamically
     const messageContainer = document.createElement('div');
     messageContainer.className = 'message-container';
@@ -171,6 +172,7 @@ function DemoInProgress(id){
 
 /* Contact section scroll animation/transition */
 function DisplayContactForm(){
+    
       contactform.style.visibility = "visible";
       contactform.style.opacity = "1";
       contactform.style.transform = "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)";
